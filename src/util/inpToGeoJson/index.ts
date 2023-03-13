@@ -3,7 +3,7 @@ import EpanetGeoJSON, {
   LinkFeature,
   Junction,
   Tank,
-  Reservior,
+  Reservoir,
   Pipe,
   Valve,
   Pump,
@@ -177,7 +177,7 @@ function reservoirs(
   }
   const [id] = data;
 
-  const reservior: Reservior = {
+  const reservoir: Reservoir = {
     type: "Feature",
     id: epanetData.nodeIndex,
     geometry: {
@@ -186,14 +186,14 @@ function reservoirs(
     },
     properties: {
       type: "Node",
-      category: "Reservior",
+      category: "Reservoir",
       id,
       head: parseFloat(data[1]),
       pattern: data[2],
     },
   };
 
-  epanetData.nodes[id] = reservior;
+  epanetData.nodes[id] = reservoir;
   epanetData.nodeIndex++;
   return epanetData;
 }
